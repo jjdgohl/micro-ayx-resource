@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏体育 – 轻量导航页</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f7f8fa;
+            color: #1e2a3e;
+            line-height: 1.7;
+        }
+        /* 深色头部 + 导航 */
+        .top-hero {
+            background: #0d1b2a;
+            color: #e1e8f0;
+            padding: 0 5% 3rem;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+        }
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1.8rem;
+            padding: 1.5rem 0 0.5rem;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #2b3a4b;
+        }
+        nav a {
+            color: #b6c8db;
+            text-decoration: none;
+            transition: color 0.15s;
+            padding-bottom: 6px;
+            border-bottom: 2px solid transparent;
+        }
+        nav a:hover { color: #eaeef5; border-bottom-color: #68a7d8; }
+        .hero-content {
+            margin-top: auto;
+            padding: 2.5rem 0 2rem;
+            max-width: 720px;
+        }
+        .hero-content h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 0.4rem;
+        }
+        .hero-content .sub {
+            color: #a1b6cc;
+            font-size: 1.05rem;
+            border-left: 4px solid #68a7d8;
+            padding-left: 1.2rem;
+            margin-top: 0.3rem;
+            line-height: 1.5;
+        }
+
+        /* 浅色正文区 */
+        .main-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.8rem 5% 4rem;
+        }
+
+        .intro-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.5rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+            border: 1px solid #eaeef2;
+        }
+        .intro-card p {
+            font-size: 1.02rem;
+            color: #2f3b4e;
+            max-width: 800px;
+        }
+        .intro-card p a {
+            color: #1c6b9e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+            transition: color 0.1s;
+        }
+        .intro-card p a:hover { color: #0a4b73; }
+
+        .scene-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2.5rem 0 3.5rem;
+        }
+        .scene-item {
+            flex: 1 1 250px;
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem 1.8rem 2.2rem;
+            border: 1px solid #e3e9f0;
+            transition: box-shadow 0.2s, transform 0.1s;
+        }
+        .scene-item:hover { box-shadow: 0 8px 22px rgba(0, 20, 40, 0.06); transform: translateY(-2px); }
+        .scene-item h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #1c2b3c;
+            border-bottom: 2px solid #dce4ed;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.2px;
+        }
+        .scene-item p {
+            font-size: 0.96rem;
+            color: #32435a;
+            margin-bottom: 0.8rem;
+        }
+        .scene-item .tag {
+            display: inline-block;
+            background: #eef3f9;
+            color: #1c5a7e;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            margin-top: 0.3rem;
+            letter-spacing: 0.3px;
+        }
+
+        .faq-lite {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.5rem;
+            margin-top: 1.8rem;
+            border: 1px solid #e2e9f1;
+        }
+        .faq-lite h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #102231;
+            margin-bottom: 1.2rem;
+        }
+        .faq-item {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #eef2f7;
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-q {
+            font-weight: 500;
+            color: #1f3145;
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.3rem;
+        }
+        .faq-q::before {
+            content: "▸";
+            color: #5982a7;
+            font-weight: 400;
+            margin-right: 0.3rem;
+        }
+        .faq-a {
+            color: #3b4d64;
+            font-size: 0.93rem;
+            padding-left: 1.6rem;
+        }
+
+        .footnote {
+            margin-top: 3.2rem;
+            text-align: center;
+            color: #6a7d92;
+            font-size: 0.9rem;
+            border-top: 1px solid #dce4ed;
+            padding-top: 2rem;
+        }
+        .footnote a {
+            color: #1c6b9e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        @media (max-width: 640px) {
+            .hero-content h1 { font-size: 1.9rem; }
+            .intro-card, .faq-lite { padding: 1.5rem 1.2rem; }
+            .scene-grid { gap: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-hero">
+    <nav>
+        <a href="#">首页</a>
+        <a href="#">场景</a>
+        <a href="#">说明</a>
+        <a href="#">关于</a>
+    </nav>
+    <div class="hero-content">
+        <h1>爱游戏体育</h1>
+        <div class="sub">轻量导航 · 关注运动与数字体验的融合</div>
+    </div>
+</div>
+
+<div class="main-wrap">
+
+    <div class="intro-card">
+        <p>
+            「爱游戏体育」一词所指向的，并非单一的赛事或平台，而是一种将竞技精神、休闲乐趣与数字交互自然交织的观察角度。我们围绕这一线索，尝试梳理那些让人感到专注、愉悦或略有挑战的体育场景——无论在线下场地还是屏幕之间，总有一些时刻值得被留意。下文是几个常见切面，供你参考。
+        </p>
+    </div>
+
+    <div class="scene-grid">
+        <div class="scene-item">
+            <h3>日常竞技</h3>
+            <p>从周末的篮球局到社区羽毛球赛，胜负之外更多是节奏与配合。移动端或简单工具就能记录数据，让过程更清晰。</p>
+            <span class="tag">轻对抗 · 社交</span>
+        </div>
+        <div class="scene-item">
+            <h3>模拟训练</h3>
+            <p>利用基础传感器或体感设备辅助动作回看，适用于游泳、跑步、瑜伽等重复性练习，降低受伤风险。</p>
+            <span class="tag">动作分析 · 反馈</span>
+        </div>
+        <div class="scene-item">
+            <h3>策略与观赏</h3>
+            <p>体育也是智力与统计的舞台。复盘赛程、讨论战术、关注球员数据——这些习惯让观看更深入。</p>
+            <span class="tag">数据 · 复盘</span>
+        </div>
+    </div>
+
+    <div class="faq-lite">
+        <h2>常见说明</h2>
+        <div class="faq-item">
+            <div class="faq-q">这个页面和爱游戏体育是什么关系？</div>
+            <div class="faq-a">它是一个基于主题「爱游戏体育」制作的轻导航介绍页，旨在帮助你快速了解与之相关的几个核心方向。如果你希望直接访问主站，可以点击句中链接：<a href="https://cns-aigamesports.com">爱游戏体育</a>。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">为什么强调“轻量导航式”？</div>
+            <div class="faq-a">页面侧重快速浏览和内容分类，不堆砌功能。三个场景模块分别对应竞技、训练、观赏三种常见参与方式，FAQ部分则回应一些基础疑问。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">后续会有更多内容吗？</div>
+            <div class="faq-a">目前这个页面只作为索引。关于「爱游戏体育」更完整的项目介绍、案例或更新，可以前往主站了解。</div>
+        </div>
+    </div>
+
+    <div class="footnote">
+        <p>基于「爱游戏体育」主题的轻导航页 · <a href="https://cns-aigamesports.com">爱游戏体育</a> · 保持开放</p>
+    </div>
+
+</div>
+
+</body>
+</html>
